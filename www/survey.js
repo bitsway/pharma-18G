@@ -291,7 +291,7 @@ $.afui.useOSThemes=false;
 			$("#cid").val(localStorage.cid);
 			$("#user_id").val(localStorage.user_id);
 			$("#user_pass").val(localStorage.user_pass);
-			if (localStorage.user_type=='sup'){
+			if (parseInt(localStorage.depth) < 2){
 			$("#chemisVDiv").hide();
 			$("#chSaveDiv").hide();
 			
@@ -489,7 +489,7 @@ function homePage() {
 
 	//if ((localStorage.synced=='YES') & (localStorage.sync_date==today)){
 	if (localStorage.synced=='YES'){
-		if (localStorage.user_type=='sup'){
+		if (parseInt(localStorage.depth) < 2){
 			$("#chemisVDiv").hide();
 			$("#chSaveDiv").hide();
 		}
@@ -1502,9 +1502,9 @@ function check_user() {
 	//var  apipath_base_photo_dm='http://127.0.0.1:8000/demo/syncmobile_417_new/dmpath?CID='+cid +'&HTTPPASS=e99business321cba'
 	
 	//var  apipath_base_photo_dm='http://c003.cloudapp.net/demo/syncmobile_417_new/dmpath?CID='+cid +'&HTTPPASS=e99business321cba'
-  //var apipath_base_photo_dm ='http://w02.yeapps.com/gpl/syncmobile_417_new_test/dmpath?CID='+cid +'&HTTPPASS=e99business321cba'
+  var apipath_base_photo_dm ='http://w02.yeapps.com/gpl/syncmobile_417_new_web_test/dmpath?CID='+cid +'&HTTPPASS=e99business321cba'
   
-  var apipath_base_photo_dm ='http://w02.yeapps.com/welcome/dmpath_live_web/get_path?CID='+cid +'&HTTPPASS=e99business321cba'
+  //var apipath_base_photo_dm ='http://w02.yeapps.com/welcome/dmpath_live_web/get_path?CID='+cid +'&HTTPPASS=e99business321cba'
 
  // var apipath_base_photo_dm ='http://e2.businesssolutionapps.com/welcome/dmpath_live_new/get_path?CID='+cid +'&HTTPPASS=e99business321cba'
  
@@ -1591,7 +1591,7 @@ function check_user() {
 							
 							//alert (localStorage.sync_date)
 							
-							//alert (localStorage.base_url+'check_user_pharma?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode)
+							alert (localStorage.base_url+'check_user_pharma?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode)
 							$("#error_logintext").val(localStorage.base_url+'check_user_pharma?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode);
 	
 							$.ajax(localStorage.base_url+'check_user_pharma?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode,{
@@ -1665,7 +1665,8 @@ function check_user() {
 													localStorage.docTThisMonthRow=resultArray[33]
 													localStorage.prProductStr=resultArray[34]
 													localStorage.linkStr=resultArray[35]
-													//alert (localStorage.marketStrDoc)
+													localStorage.depth=resultArray[36]
+													alert (localStorage.depth)
 													
 													//alert (localStorage.menu)
 													//alert (localStorage.cTeam)
@@ -2271,14 +2272,14 @@ localStorage.report_button=' <input type="submit" id="loginButton" onClick="s_or
 													 checkRequest()
 													}
 													checkInbox();
-													if (localStorage.user_type=='sup'){
-			$("#chemisVDiv").hide();
-			$("#chSaveDiv").hide();
-		}
-		else{
-			$("#chemisVDiv").show();
-			$("#chSaveDiv").show();
-		}
+													if (parseInt(localStorage.depth) < 2){
+															$("#chemisVDiv").hide();
+															$("#chSaveDiv").hide();
+														}
+														else{
+															$("#chemisVDiv").show();
+															$("#chSaveDiv").show();
+														}
 													$.afui.loadContent("#pageHome",true,true,'right');
 													
 													set_doc_all();
@@ -2985,6 +2986,7 @@ function addMarketList() {
 	//alert (localStorage.unschedule_market_cmb_id);
 	$("#market_combo_id_lv").val('');
 	var unschedule_market_combo_list=localStorage.unschedule_market_cmb_id;
+	
 	//alert (unschedule_market_combo_list)
 	$('#market_combo_id_lv').empty();
 	$('#market_combo_id_lv').append(unschedule_market_combo_list);
