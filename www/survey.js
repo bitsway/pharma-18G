@@ -1502,7 +1502,8 @@ function check_user() {
 	//var  apipath_base_photo_dm='http://127.0.0.1:8000/demo/syncmobile_417_new/dmpath?CID='+cid +'&HTTPPASS=e99business321cba'
 	
 	//var  apipath_base_photo_dm='http://c003.cloudapp.net/demo/syncmobile_417_new/dmpath?CID='+cid +'&HTTPPASS=e99business321cba'
-  var apipath_base_photo_dm ='http://w02.yeapps.com/gpl/syncmobile_417_new_web_test/dmpath?CID='+cid +'&HTTPPASS=e99business321cba'
+  //var apipath_base_photo_dm ='http://w02.yeapps.com/gpl/syncmobile_417_new_web_test/dmpath?CID='+cid +'&HTTPPASS=e99business321cba'
+  var apipath_base_photo_dm ='http://w02.yeapps.com/gpl/syncmobile_417_new_test/dmpath?CID='+cid +'&HTTPPASS=e99business321cba'
   
   //var apipath_base_photo_dm ='http://w02.yeapps.com/welcome/dmpath_live_web/get_path?CID='+cid +'&HTTPPASS=e99business321cba'
 
@@ -1591,7 +1592,7 @@ function check_user() {
 							
 							//alert (localStorage.sync_date)
 							
-							alert (localStorage.base_url+'check_user_pharma?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode)
+							//alert (localStorage.base_url+'check_user_pharma?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode)
 							$("#error_logintext").val(localStorage.base_url+'check_user_pharma?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode);
 	
 							$.ajax(localStorage.base_url+'check_user_pharma?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode,{
@@ -1666,7 +1667,7 @@ function check_user() {
 													localStorage.prProductStr=resultArray[34]
 													localStorage.linkStr=resultArray[35]
 													localStorage.depth=resultArray[36]
-													alert (localStorage.depth)
+													//alert (localStorage.depth)
 													
 													//alert (localStorage.menu)
 													//alert (localStorage.cTeam)
